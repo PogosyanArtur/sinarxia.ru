@@ -54,7 +54,7 @@
                 <div class="nav flex-column d-lg-none productsTub" id="<?php echo $product_list_arg['taxonomy']; ?>Tub" role="tablist">
 
                     <?php foreach ( $goods_categories as $category) : ?>
-                        <a class="text-accent-main" id="home-tab" data-toggle="tab" href="#<?php echo $category->slug ?>" role="tab" aria-controls="home" aria-selected="true">
+                        <a class="btn btn-primary-main my-1" id="home-tab" data-toggle="tab" href="#<?php echo $category->slug ?>" role="tab" aria-controls="home" aria-selected="true">
                             <?php echo $category->name ?>
                         </a>
                     <?php endforeach; ?>

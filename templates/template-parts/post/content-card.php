@@ -1,11 +1,19 @@
 <?php 
     $image = get_field('image');
     $size = 'medium'; // (thumbnail, medium, large, full or simple size)
+    $image_url = wp_get_attachment_image_url($image, $size);
+    $no_image_url = get_stylesheet_directory_uri() . '/assets/images/no_image.jpg';
 ?>
 
 <a class="card" href="<?php echo get_permalink(); ?>">
-    <div class="card__img" style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<?php echo wp_get_attachment_image_url($image, $size); ?>')"></div>
-    <div class="card__img--hover" style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<?php echo wp_get_attachment_image_url($image, $size); ?>')"></div>
+
+    <?php if( $image_url ): ;?>
+        <div class="card__img" style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<?php echo $image_url; ?>')"></div>
+        <div class="card__img--hover" style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<?php echo $image_url; ?>')"></div>
+    <?php else: ;?>
+        <div class="card__img" style="background-image:url('<?php echo $no_image_url; ?>')"></div>
+        <div class="card__img--hover" style="background-image:url('<?php echo $no_image_url; ?>')"></div>  
+    <?php endif ;?>
 
     <div class="card__info d-flex flex-column justify-content-between">
         <div>

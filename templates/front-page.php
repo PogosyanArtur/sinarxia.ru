@@ -37,7 +37,7 @@
 
             <?php foreach( $articles as $index=> $article ): ?>
                 <?php if( $index < 2 ): ?>
-                    <div class='card article-card my-3 m-lg-0 <?php echo ( $index == 0 ) ? 'bg-warning-light' : 'bg-primary-light' ?>'>
+                    <div class='card article-card my-3 my-lg-0 <?php echo ( $index == 0 ) ? 'bg-warning-light' : 'bg-primary-light' ?>'>
                         <?php 
                             set_query_var('article', $article);
                             get_template_part('/template-parts/page/content','article-card');             

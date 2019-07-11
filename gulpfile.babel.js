@@ -105,7 +105,7 @@ const server = browserSync.create();
 */
 	// Images
 	export const images = () => {
-	return src( 'images/**/*.{ jpg, jpeg, png, svg, gif } ' ) 
+	return src( 'images/**/*.{jpg,jpeg,png,svg,gif}' ) 
 		.pipe( gulpIf( PRODUCTION, imagemin() ) )
 		.pipe( dest( PATH + 'assets/images' ) );
 	}
