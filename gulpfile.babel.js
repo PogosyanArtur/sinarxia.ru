@@ -172,8 +172,8 @@ const server = browserSync.create();
 */
 
 	export const watchForChanges = () => {
-		watch( 'styles/**/*.{ scss, sass } ', styles );
-		watch( 'images/**/*.{ jpg, jpeg, png, svg, gif }', series( images, reload ) );
+		watch( 'styles/**/*.{scss,sass}', styles );
+		watch( 'images/**/*.{jpg,jpeg,png,svg,gif}', series( images, reload ) );
 		watch( 'assets/**/*', series( copyAssets, reload ) );
 		watch( [ "templates/**/*.php", "root/**/*", ], series( copyRoot, reload ) );
 		watch( 'scripts/**/*.js', series( scripts, reload ) );
