@@ -1,20 +1,6 @@
-<?php
-    ( get_post_type() === "goods" ) ? $title = "Продукция" : $title = "Услуги";
-    $bg_images = get_field('bg_category_image','options');
-?>
-
 <?php get_header(); ?>
 
-<section class="w-100 h-250px">
-    <div class="w-100 h-100 banner"  style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?php echo $bg_images ; ?>')">
-        <div class="container d-flex flex-column justify-content-end h-100">
-            <h1 class="text-white mb-3 w-35" >
-                <?php echo esc_html( $title ); ?>
-                <hr class="bg-accent-main h-2px "/>
-            </h1>
-        </div>
-    </div>
-</section>
+<?php get_template_part('/template-parts/banners/banner', 'image'); ?>
 
 <section class="container py-6">
     <div class="row">

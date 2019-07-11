@@ -11,6 +11,7 @@
     $size = 'large';
     $alt = get_post_meta($imageID, '_wp_attachment_image_alt', true);
 
+
 ?>
 <section class="container">
     <div class="row my-4">
@@ -23,7 +24,7 @@
                 <img class="img-fluid pb-3" src="<?php echo wp_get_attachment_image_url($imageID , $size) ?>" alt="<?php esc_attr_e( $alt ); ?>"/>
 
                 <aside class="d-lg-none col-12">
-                    <div class="">             
+                    <div>             
                         <p class="border  text-accent-main m-0 p-4 font-weight-bold rounded-top h5 text-center">
                             Цена 
                             <del class="text-common-500 font-weight-normal"><?php if( $old_price )(esc_html_e( $old_price )) ;?></del> 
@@ -35,38 +36,40 @@
                         <?php get_template_part('/template-parts/sidebar/sidebar', 'contacts'); ?>
                     </div>
                 </aside>
+
+
+
                 <?php if($products_info): ;?>
                     <ul class="nav bg-primary-main rounded" id="singlePageTab" role="tablist">
-                    
-                        <?php foreach( $products_info as $index => $info ): ;?>
-                            <li class="nav-item">
-                                <a class="nav-link singlePageTab" data-toggle="tab" href="#tub<?php echo $index?>" role="tab" aria-controls="home" aria-selected="true">
-                                    <?php esc_html_e( $info[ 'acf_fc_layout' ], 'sinarxia' ) ;?>
-                                </a>
-                            </li>
-                        <?php endforeach ;?>
 
+                            <?php foreach( $products_info as $index => $info ): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link singlePageTab" data-toggle="tab" href="#tub<?php echo $index?>" role="tab" aria-controls="home" aria-selected="true">
+                                        <?php esc_html_e( $info[ 'tub' ], 'sinarxia' ) ;?>
+                                    </a>
+                                </li>
+                            <?php endforeach ;?>
 
                     </ul>
                     <div class="tab-content " id="singlePageTabContent">
                         <?php foreach( $products_info as $index => $info ): ;?>
 
-                            <?php if( is_array( $info[ 'content' ] ) ): ?>
+                            <?php if( $info['acf_fc_layout'] === 'table2' ): ?>
 
                                 <div class="tab-pane fade p-3" id="tub<?php echo $index ?>" role="tabpanel" aria-labelledby="home-tab">
                                     
                                     <table class="table w-100 table-striped">
                                         <thead>
                                             <tr class="text-accent-main">
-                                                <th scope="col" class="w-75">Наименование материала</th>
-                                                <th scope="col" class="w-25 text-center">Cодержание</th>
+                                                <th scope="col" class="w-75"><?php echo $info['name_column1'] ;?></th>
+                                                <th scope="col" class="w-25 text-center"><?php echo $info['name_column2'] ;?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach( $info[ 'content' ] as $item): ?>
+                                            <?php foreach( $info[ 'table' ] as $item): ?>
                                                 <tr>
-                                                    <td class="w-75"><?php esc_html_e($item[ 'name' ]) ;?></td>
-                                                    <td class="w-25 text-center"><?php esc_html_e($item[ 'value' ]) ;?></td>
+                                                    <td class="w-75"><?php esc_html_e($item[ 'value_column1' ]) ;?></td>
+                                                    <td class="w-25 text-center"><?php esc_html_e($item[ 'value_column2' ]) ;?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
