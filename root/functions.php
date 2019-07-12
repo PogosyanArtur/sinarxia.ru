@@ -66,15 +66,16 @@ add_theme_support( 'simple-logo' );
 	===============================================================
 */
 
-	function simple_enqueue_script(){
-		wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/bundle.css',false,'1.1','all');
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js", false, false, true);
-		wp_enqueue_script('jquery');
-		wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/bundle.js', array ( 'jquery' ), 1.1, true);
-	}
+function simple_enqueue_script(){
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/bundle.css',false,'1.1','all');
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js", false, false, true);
+	wp_enqueue_script('jquery');
+	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/bundle.js', array ( 'jquery' ), 1.1, true);
+}
 
-	add_action( 'wp_enqueue_scripts', 'simple_enqueue_script' );
+add_action( 'wp_enqueue_scripts', 'simple_enqueue_script' );
+
 /*
 	===============================================================
 	Register menu and simpleize menu 
@@ -82,15 +83,15 @@ add_theme_support( 'simple-logo' );
 */
 
 
-	function simple_register_nav_menus() {
-		register_nav_menus( [ 
-			'header_menu' => 'Меню в шапке',
-			'footer_menu_products' => 'Меню в подвале продукция',
-			'footer_menu_service' => 'Меню в подвале услуги'
-			] );
-	}
+function simple_register_nav_menus() {
+	register_nav_menus( [ 
+		'header_menu' => 'Меню в шапке',
+		'footer_menu_products' => 'Меню в подвале продукция',
+		'footer_menu_service' => 'Меню в подвале услуги'
+		] );
+}
 
-	add_action( 'after_setup_theme', 'simple_register_nav_menus' );
+add_action( 'after_setup_theme', 'simple_register_nav_menus' );
 
 /*
 	===============================================================
@@ -145,10 +146,10 @@ add_action( 'restrict_manage_posts', 'simple_taxonomy_filter' );
 function remove_menus(){
 
 //   remove_menu_page( 'index.php' );                  /* Консоль */
-  remove_menu_page( 'edit.php' );                   /* Записи */
+remove_menu_page( 'edit.php' );                   /* Записи */
 //   remove_menu_page( 'upload.php' );                 /* Медиафайлы */
 //   remove_menu_page( 'edit.php?post_type=page' );    /* Страницы */
-  remove_menu_page( 'edit-comments.php' );          /* Комментарии */
+remove_menu_page( 'edit-comments.php' );          /* Комментарии */
 //   remove_menu_page( 'themes.php' );                 /* Внешний вид */
 //   remove_menu_page( 'plugins.php' );                /* Плагины */
 //   remove_menu_page( 'users.php' );                  /* Пользователи */

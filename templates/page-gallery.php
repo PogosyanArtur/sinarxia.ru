@@ -1,19 +1,21 @@
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) : ?>
+    <?php while ( have_posts() ) : the_post() ;?>
 
-    <?php get_template_part('/template-parts/banners/banner', 'image'); ?>
+        <?php get_template_part('/template-parts/banners/banner', 'image') ;?>
 
-    <section class="container py-6">
+        <section class="container py-6">
+            <main>
+                <?php the_content() ;?>   
+            </main>
+        </section>
 
-        <main>
-            <?php the_content(); ?>   
-        </main>
+    <?php endwhile; ?>
+<?php else: ?>
 
-    </section>
-
-<?php endwhile; else: ?>
-        <p>Извините по вашему запросу ничего не найдено</p>
+        <h2>Извините по вашему запросу ничего не найдено</h2>
+        
 <?php endif; ?>
 
 <?php get_footer(); ?>

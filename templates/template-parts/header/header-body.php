@@ -1,4 +1,3 @@
-
 <?php 
     $image = get_field('logo','options');
     $size = 'medium'; // (thumbnail, medium, large, full or simple size)
@@ -39,11 +38,13 @@
                     <a class="text-white h6" href="tel:<?php the_field("global_contacts_telephone_link","option"); ?>"><?php the_field("global_contacts_telephone_caption","option"); ?></a>
                 </div>
             </div>
+
             <button class="btn text-center text-white d-lg-none" type="button" data-toggle="collapse" data-target="#navbar_search_form" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <svg class="mr-2" width="24" height="24">
                     <use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#search' ); ?>"></use>
                 </svg>
             </button>
+            
             <button class="navbar-toggler border border-primary-main " type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <svg class="" width="30" height="30">
                     <use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#menu_bar' ); ?>"></use>

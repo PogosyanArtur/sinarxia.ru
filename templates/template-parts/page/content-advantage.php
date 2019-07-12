@@ -2,7 +2,6 @@
     <h2 class="my-5 h2 text-center text-primary-main"> Наши преимущества</h2>
     <div class="row">
         <?php if( have_rows('our_advantages') ) : while( have_rows('our_advantages') ): the_row();         
-            // vars
             $icon = get_sub_field('icon');
             $title = get_sub_field('title');           
         ?>
