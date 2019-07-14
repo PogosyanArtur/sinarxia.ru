@@ -9,17 +9,21 @@
     .title_size_h2
         font-size: 24px
 
-//*****************************************
-//Nav link
-//**************************************** 
 
-@include media-breakpoint-down(lg)
-    .nav-link_view_light
-        border-bottom: 1px solid theme-color('accent-main')
-        color: theme-color('primary-dark')
-        display: block;
-        &:hover
-            color: theme-color('accent-dark')
+
+
+.dropdown-submenu 
+  position: relative;
+
+.dropdown-submenu>.dropdown-menu 
+  top: 0;
+  left: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+
+
+
+
 
 //*****************************************
 //Icon

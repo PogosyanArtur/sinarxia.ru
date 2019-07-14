@@ -1,0 +1,21 @@
+{
+  "name": "simple",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Artur <pa160290@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/PogosyanArtur/sinarxia.ru",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap4": "^4.3.1",
+    "jquery-ui": "^1.12.1"
+  }
+}

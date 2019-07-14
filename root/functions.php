@@ -21,8 +21,6 @@ function prv($var) {
     $int++;
 }
 
-
-
 /*
 	===============================================================
 	Add options page in admin panel
@@ -57,8 +55,44 @@ if( function_exists( 'acf_add_options_page' ) ) {
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'menus' );
+add_theme_support( 'widgets' );
 add_theme_support( 'simple-logo' );
 
+/*
+	===============================================================
+	Widget
+	===============================================================
+*/
+
+register_sidebar( array(
+	'id'          	=> 'left_menu',
+	'name'        	=> __( 'Левый панель', 'sinarxia' ),
+	'description' 	=> __( 'This sidebar is located above the age logo.', 'sinarxia'),
+	'description'   => '',
+	'class'         => '',
+	'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'after_widget'  => "</li>\n",
+	'before_title'  => '<h2 class="widgettitle">',
+	'after_title'   => "</h2>\n",
+) );
+
+
+
+function custom_remove_default_widget() {
+	unregister_widget('WP_Widget_Archives'); // Архивы
+	unregister_widget('WP_Widget_Calendar'); // Календарь
+	unregister_widget('WP_Widget_Categories'); // Рубрики
+	unregister_widget('WP_Widget_Meta'); // Мета
+	unregister_widget('WP_Widget_Pages'); // Страницы
+	unregister_widget('WP_Widget_Recent_Comments'); // Свежие комментарии
+	unregister_widget('WP_Widget_Recent_Posts'); // Свежие записи
+	unregister_widget('WP_Widget_RSS'); // RSS
+	unregister_widget('WP_Widget_Search'); // Поиск
+	unregister_widget('WP_Widget_Tag_Cloud'); // Облако меток
+	unregister_widget('WP_Widget_Text'); // Текст
+}
+ 
+add_action( 'widgets_init', 'custom_remove_default_widget', 20 );
 
 /*
 	===============================================================
@@ -92,6 +126,8 @@ function simple_register_nav_menus() {
 }
 
 add_action( 'after_setup_theme', 'simple_register_nav_menus' );
+
+
 
 /*
 	===============================================================
@@ -146,7 +182,7 @@ add_action( 'restrict_manage_posts', 'simple_taxonomy_filter' );
 function remove_menus(){
 
 //   remove_menu_page( 'index.php' );                  /* Консоль */
-remove_menu_page( 'edit.php' );                   /* Записи */
+//   remove_menu_page( 'edit.php' );                   /* Записи */
 //   remove_menu_page( 'upload.php' );                 /* Медиафайлы */
 //   remove_menu_page( 'edit.php?post_type=page' );    /* Страницы */
 remove_menu_page( 'edit-comments.php' );          /* Комментарии */
@@ -168,183 +204,6 @@ add_action( 'admin_menu', 'remove_menus' );
 
 // add_action( 'init', 'simple_remove_post_excerpt_feature' );
 
-
-
-/*
-	===============================================================
-	Taxonomy: Категория товаров.
-	===============================================================
-*/
-
-
-function simple_register_goods_category_taxes() {
-
-	$labels = array(
-		"name" 			=> __( "Категория товаров"),
-		"singular_name" => __( "Категория товаров" ),
-	);
-
-	$rewrite =  [
-		'slug' 			=> 'goods_category',
-		'with_front' 	=> true, 
-		'hierarchical' 	=> false
-	];
-
-	$args = array(
-		"label" 				=> __( "Категория товаров" ),
-		"labels" 				=> $labels,
-		"public" 				=> true,
-		"publicly_queryable" 	=> true,
-		"hierarchical" 			=> true,
-		"show_ui" 				=> true,
-		"show_in_menu" 			=> true,
-		"show_in_nav_menus" 	=> true,
-		"query_var" 			=> true,
-		"rewrite" 				=> $rewrite,
-		"show_admin_column" 	=> true,
-		"show_in_rest" 			=> true,
-		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"show_in_quick_edit" 	=> false,
-		);
-
-	register_taxonomy( "goods_category", array( "goods" ), $args );
-}
-
-add_action( 'init', 'simple_register_goods_category_taxes' );
-
-/*
-	===============================================================
-	Taxonomy: Категория услуг.
-	===============================================================
-*/
-
-
-function simple_register_goods_service_taxes() {
-
-	$labels = array(
-		"name" 			=> __( "Категория услуг"),
-		"singular_name" => __( "Категория услуг" ),
-	);
-
-	$rewrite =  [
-		'slug' 			=> 'service_category',
-		'with_front' 	=> true, 
-		'hierarchical' 	=> false
-	];
-
-	$args = array(
-		"label" 				=> __( "Категория услуг" ),
-		"labels" 				=> $labels,
-		"public" 				=> true,
-		"publicly_queryable" 	=> true,
-		"hierarchical" 			=> true,
-		"show_ui" 				=> true,
-		"show_in_menu" 			=> true,
-		"show_in_nav_menus" 	=> true,
-		"query_var" 			=> true,
-		"rewrite" 				=> $rewrite,
-		"show_admin_column" 	=> true,
-		"show_in_rest" 			=> true,
-		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"show_in_quick_edit" 	=> false,
-		);
-
-	register_taxonomy( "service_category", array( "service" ), $args );
-}
-
-add_action( 'init', 'simple_register_goods_service_taxes' );
-
-
-
-/*
-	===============================================================
-	Post Type: Товары.
-	===============================================================
-*/
-
-function simple_register_goods_post_type() {
-
-	$labels = array(
-		"name" 			=> __( "Товары", "sinarxia" ),
-		"singular_name" => __( "Товары", "sinarxia" ),
-	);
-
-	$args = array(
-		"label" 					=> __( "Товары", 'sinarxia' ),
-		"labels" 					=> $labels,
-		"description" 				=> "",
-		"public" 					=> true,
-		"publicly_queryable" 		=> true,
-		"show_ui" 					=> true,
-		"delete_with_user" 			=> false,
-		"show_in_rest" 				=> true,
-		"rest_base" 				=> "",
-		"rest_controller_class" 	=> "WP_REST_Posts_Controller",
-		"has_archive" 				=> true,
-		"show_in_menu" 				=> true,
-		"show_in_nav_menus" 		=> true,
-		"exclude_from_search"		=> false,
-		"capability_type" 			=> "post",
-		"map_meta_cap" 				=> true,
-		"hierarchical" 				=> true,
-		"rewrite" 					=> true,
-		"query_var" 				=> true,
-		"menu_position" 			=> 5,
-		"menu_icon" 				=> "dashicons-cart",
-		'taxonomies'            	=> array( 'goods_category' ),
-		"supports" 					=> array( "title" ),
-		'can_export'            	=> true,
-	);
-
-	register_post_type( "goods", $args );
-}
-
-add_action( 'init', 'simple_register_goods_post_type', 0 );
-
-/*
-	===============================================================
-	Post Type: Услуги.
-	===============================================================
-*/
-
-function simple_register_service_post_type() {
-
-	$labels = array(
-		"name" 			=> __( "Услуги", "sinarxia" ),
-		"singular_name" => __( "Услуги", "sinarxia" ),
-	);
-
-	$args = array(
-		"label" 					=> __( "Услуги", 'sinarxia' ),
-		"labels" 					=> $labels,
-		"description" 				=> "",
-		"public" 					=> true,
-		"publicly_queryable" 		=> true,
-		"show_ui" 					=> true,
-		"delete_with_user" 			=> false,
-		"show_in_rest" 				=> true,
-		"rest_base" 				=> "",
-		"rest_controller_class" 	=> "WP_REST_Posts_Controller",
-		"has_archive" 				=> true,
-		"show_in_menu" 				=> true,
-		"show_in_nav_menus" 		=> true,
-		"exclude_from_search"		=> false,
-		"capability_type" 			=> "post",
-		"map_meta_cap" 				=> true,
-		"hierarchical" 				=> true,
-		"rewrite" 					=> true,
-		"query_var" 				=> true,
-		"menu_position" 			=> 5,
-		"menu_icon" 				=> "dashicons-cart",
-		'taxonomies'            	=> array( 'service_category'),
-		"supports" 					=> array( "title" ),
-		'can_export'            	=> true,
-	);
-
-	register_post_type( "service", $args );
-}
-
-add_action( 'init', 'simple_register_service_post_type', 0 );
 
 /*
 	===============================================================

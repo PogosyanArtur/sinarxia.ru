@@ -11,20 +11,7 @@ $bg_images2 = wp_get_attachment_image_url($bg_images[1]['bg_image'],'full');
 <?php echo do_shortcode('[smartslider3 slider=2]') ;?>
 
 <main class="mb-4">    
-    <?php
-        $goods_list_arg = [
-            'post_type' =>'goods',
-            'taxonomy' =>'goods_category',
-        ];
-        set_query_var('product_list_arg', $goods_list_arg);
-        get_template_part('/template-parts/post/content','products-list');
-        $service_list_arg = [
-            'post_type' =>'service',
-            'taxonomy' =>'service_category',
-        ];
-        set_query_var('product_list_arg', $service_list_arg);
-        get_template_part('/template-parts/post/content','products-list');
-    ?>    
+   
 </main> 
 
 <article class="py-8 banner"  style="background-image: linear-gradient(to bottom right,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('<?php echo $bg_images1 ?>')">

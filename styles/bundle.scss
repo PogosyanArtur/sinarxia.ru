@@ -1,13 +1,13 @@
 
 /*
     ======================================================
-     Bootstrap required
+     bootstrap4 required
     ======================================================
 */
 
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
+@import "bower_components/bootstrap4/scss/functions";
+@import "bower_components/bootstrap4/scss/variables";
+@import "bower_components/bootstrap4/scss/mixins";
 
 /*
     ======================================================
@@ -21,72 +21,72 @@
 
 /*
     ======================================================
-     Bootstrap Reboot and root
+     bootstrap4 Reboot and root
     ======================================================
 */
 
-@import "node_modules/bootstrap/scss/reboot";
-// @import "node_modules/bootstrap/scss/root";
+@import "bower_components/bootstrap4/scss/reboot";
+// @import "bower_components/bootstrap4/scss/root";
 
 /*
     ======================================================
-     Bootstrap utilites
+     bootstrap4 utilites
     ======================================================
 */
 
-@import "node_modules/bootstrap/scss/utilities/align";
-@import "node_modules/bootstrap/scss/utilities/background";
-@import "node_modules/bootstrap/scss/utilities/borders";
-@import "node_modules/bootstrap/scss/utilities/clearfix";
-@import "node_modules/bootstrap/scss/utilities/display";
-@import "node_modules/bootstrap/scss/utilities/embed";
-@import "node_modules/bootstrap/scss/utilities/flex";
-@import "node_modules/bootstrap/scss/utilities/float";
-@import "node_modules/bootstrap/scss/utilities/position";
-@import "node_modules/bootstrap/scss/utilities/screenreaders";
-// @import "node_modules/bootstrap/scss/utilities/sizing";
-@import "node_modules/bootstrap/scss/utilities/spacing";
-@import "node_modules/bootstrap/scss/utilities/text";
-@import "node_modules/bootstrap/scss/utilities/visibility";
+@import "bower_components/bootstrap4/scss/utilities/align";
+@import "bower_components/bootstrap4/scss/utilities/background";
+@import "bower_components/bootstrap4/scss/utilities/borders";
+@import "bower_components/bootstrap4/scss/utilities/clearfix";
+@import "bower_components/bootstrap4/scss/utilities/display";
+@import "bower_components/bootstrap4/scss/utilities/embed";
+@import "bower_components/bootstrap4/scss/utilities/flex";
+@import "bower_components/bootstrap4/scss/utilities/float";
+@import "bower_components/bootstrap4/scss/utilities/position";
+@import "bower_components/bootstrap4/scss/utilities/screenreaders";
+// @import "bower_components/bootstrap4/scss/utilities/sizing";
+@import "bower_components/bootstrap4/scss/utilities/spacing";
+@import "bower_components/bootstrap4/scss/utilities/text";
+@import "bower_components/bootstrap4/scss/utilities/visibility";
 
 /*
     ======================================================
-     Bootstrap Optional
+     bootstrap4 Optional
     ======================================================
 */
 
-@import "node_modules/bootstrap/scss/type";
-@import "node_modules/bootstrap/scss/images";
-@import "node_modules/bootstrap/scss/code";
-@import "node_modules/bootstrap/scss/grid";
+@import "bower_components/bootstrap4/scss/type";
+@import "bower_components/bootstrap4/scss/images";
+@import "bower_components/bootstrap4/scss/code";
+@import "bower_components/bootstrap4/scss/grid";
 
-// @import "node_modules/bootstrap/scss/alert";
-// @import "node_modules/bootstrap/scss/badge";
-// @import "node_modules/bootstrap/scss/breadcrumb";
-@import "node_modules/bootstrap/scss/button-group";
-@import "node_modules/bootstrap/scss/buttons";
-@import "node_modules/bootstrap/scss/card";
-// @import "node_modules/bootstrap/scss/carousel";
-// @import "node_modules/bootstrap/scss/close";
-// @import "node_modules/bootstrap/scss/custom-forms";
-@import "node_modules/bootstrap/scss/dropdown";
-@import "node_modules/bootstrap/scss/forms";
-// @import "node_modules/bootstrap/scss/input-group";
-// @import "node_modules/bootstrap/scss/jumbotron";
-@import "node_modules/bootstrap/scss/list-group";
-// @import "node_modules/bootstrap/scss/media";
-// @import "node_modules/bootstrap/scss/modal";
-@import "node_modules/bootstrap/scss/nav";
-@import "node_modules/bootstrap/scss/navbar";
-@import "node_modules/bootstrap/scss/pagination";
-// @import "node_modules/bootstrap/scss/popover";
-// @import "node_modules/bootstrap/scss/print";
-// @import "node_modules/bootstrap/scss/progress";
-// @import "node_modules/bootstrap/scss/spinners";
-@import "node_modules/bootstrap/scss/tables";
-// @import "node_modules/bootstrap/scss/toasts";
-// @import "node_modules/bootstrap/scss/tooltip";
-@import "node_modules/bootstrap/scss/transitions";
+// @import "bower_components/bootstrap4/scss/alert";
+// @import "bower_components/bootstrap4/scss/badge";
+// @import "bower_components/bootstrap4/scss/breadcrumb";
+@import "bower_components/bootstrap4/scss/button-group";
+@import "bower_components/bootstrap4/scss/buttons";
+@import "bower_components/bootstrap4/scss/card";
+// @import "bower_components/bootstrap4/scss/carousel";
+// @import "bower_components/bootstrap4/scss/close";
+// @import "bower_components/bootstrap4/scss/custom-forms";
+@import "bower_components/bootstrap4/scss/dropdown";
+@import "bower_components/bootstrap4/scss/forms";
+// @import "bower_components/bootstrap4/scss/input-group";
+// @import "bower_components/bootstrap4/scss/jumbotron";
+@import "bower_components/bootstrap4/scss/list-group";
+// @import "bower_components/bootstrap4/scss/media";
+// @import "bower_components/bootstrap4/scss/modal";
+@import "bower_components/bootstrap4/scss/nav";
+@import "bower_components/bootstrap4/scss/navbar";
+@import "bower_components/bootstrap4/scss/pagination";
+// @import "bower_components/bootstrap4/scss/popover";
+// @import "bower_components/bootstrap4/scss/print";
+// @import "bower_components/bootstrap4/scss/progress";
+// @import "bower_components/bootstrap4/scss/spinners";
+@import "bower_components/bootstrap4/scss/tables";
+// @import "bower_components/bootstrap4/scss/toasts";
+// @import "bower_components/bootstrap4/scss/tooltip";
+@import "bower_components/bootstrap4/scss/transitions";
 
 /*
     ======================================================

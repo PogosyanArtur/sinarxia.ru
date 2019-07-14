@@ -73,7 +73,7 @@
         <!-- Start Navigation tabs content -->
 
         <div class="col-12 col-md-8 col-lg-12">
-            <div class="tab-content " id="<?php echo $product_list_arg['taxonomy']; ?>TubContent">
+            <div class="tab-content" id="<?php echo $product_list_arg['taxonomy']; ?>TubContent">
             
                 <?php foreach ( $categories as $category) : ?>
                     <?php 
