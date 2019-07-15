@@ -198,31 +198,22 @@ a.card
 
 .category-list
     list-style: none
-.category-list .categories
+    padding: 0;
 
-.category-list > .cat-item > a
+a.category-list__link
+    cursor: pointer
+    text-decoration: none
     color: theme-color('primary-main')
     font-weight: bold
-.category-list .cat-item
-    @extend .list-group-item-action
-.category-list .cat-item  a
-    @extend .list-group-item    
-    padding: 10px 20px  
-    color: theme-color('primary-main')
-    text-decoration: none
-    transition: 0.3
 
-.category-list .cat-item a:hover ,   
-.category-list .current-cat > a
+a.category-list__link:hover,
+a.category-list__link:active,
+a.category-list__link.category-list__link_active
     color: theme-color('accent-main')
-   
-.category-list .children 
-    list-style: none
-    padding: 0
+    font-weight: bold
 
-.category-list .children .cat-item a
-    display: block
-    padding-left: 40px
+
+
 
 
 //*****************************************

@@ -1,17 +1,12 @@
 <?php 
     $queried_object     = get_queried_object();
-    $queried_taxonomy   = $queried_object->taxonomy;
-    $queried_taxonomies  = $queried_object->taxonomies;
-    $tax =  ($queried_taxonomy) ? : $queried_taxonomies[0];
 
     $list_categories_args = array(
-        'taxonomy'     => $tax, 
-        'orderby'      => 'name',  
-        'show_count'   => 0,       
-        'pad_counts'   => 0,       
+        'orderby'      => 'name',
         'hierarchical' => 1,       
         'title_li'     => '',
-        'hide_empty'   => true     
+        'hide_empty'   => true,
+        'walker'       => new Walker_sidebar_category,
     );
 ?>
 

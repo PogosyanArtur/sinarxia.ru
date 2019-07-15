@@ -138,6 +138,7 @@ add_action( 'after_setup_theme', 'simple_register_nav_menus' );
 require get_template_directory() . '/inc/walkers/walker-header-navbar-lg.php';
 require get_template_directory() . '/inc/walkers/walker-header-navbar-xs.php';
 require get_template_directory() . '/inc/walkers/walker-footer-menu.php';
+require get_template_directory() . '/inc/walkers/walker-sidebar-category.php';
 
 
 /*

@@ -46,9 +46,13 @@ set_query_var('categories', $categories)
 
     <!-- End preview tubs -->
 
+    <!-- Start preview content -->
+
     <div class="container">
         <?php get_template_part('/template-parts/page/content','preview-content') ;?>
     </div>
+
+    <!-- End preview content -->
    
 </main> 
 
