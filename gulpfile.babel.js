@@ -35,9 +35,10 @@ import svgSprite    from 'gulp-svg-sprite';
 	****************************************************
 */
 
-const PRODUCTION = yargs.argv.production;
-const PATH = '../../sinarxia/wp-content/themes/simple/';
-const server = browserSync.create();
+const PRODUCTION 	= yargs.argv.production;
+const DONAME 		= 'sinarxia.ru';
+const PATH 			= '../../' + DONAME + '/wp-content/themes/simple/';
+const server 		= browserSync.create();
 
 /*
 	****************************************************
@@ -46,7 +47,7 @@ const server = browserSync.create();
 */
 
 	export const serve = done => {
-		server.init( { proxy: "http://localhost/sinarxia/DEV_F3/public_html", browser: "chrome" } );
+		server.init( { proxy: "http://localhost/" + DONAME + "/DEV_F3/public_html", browser: "chrome" } );
 		done();
 	};
 	export const reload = done => {

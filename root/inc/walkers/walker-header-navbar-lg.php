@@ -37,8 +37,7 @@ class Walker_header_navbar_lg extends Walker_Nav_Menu {
     // $classes = empty( $item->classes ) ? array() : (array) $item->classes;        
     $classes[] = ( $depth === 0 &&  $args->walker->has_children ) ? ' dropdown' : '';
     $classes[] = ( $depth === 0 ) ? ' nav-item' : '';
-    $classes[] = ( $depth > 0 && $args->walker->has_children ) ? ' dropdown-submenu ' : '';
-    $classes[] = ( $item->current || $item->current_item_anchestor ) ? '' : '';
+    $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'active' : '';
 
 
     $li_class_names = '';
@@ -67,7 +66,7 @@ class Walker_header_navbar_lg extends Walker_Nav_Menu {
     $a_attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
     $a_attributes .= ! empty( $item->url ) ? ' href="' . esc_attr($item->url) . '"' : '';
     
-    $a_attributes .= ( $args->walker->has_children ) ? implode(' ', array( 
+    $a_attributes .= ( $depth === 0 && $args->walker->has_children ) ? implode(' ', array( 
         "data-toggle='dropdown'",
         "aria-haspopup='true'",
         "aria-expanded='false'",

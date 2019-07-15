@@ -3,7 +3,7 @@
         'theme_location'  => 'header_menu',
         'container'       => false,
         'items_wrap'      => '<ul class="navbar-nav mr-auto">%3$s</ul>',
-        'depth'           => 3,
+        'depth'           => 2,
         'walker'          => new Walker_header_navbar_lg()
     ]
 ?>
