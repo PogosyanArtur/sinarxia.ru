@@ -10,21 +10,6 @@
         font-size: 24px
 
 
-
-
-.dropdown-submenu 
-  position: relative;
-
-.dropdown-submenu>.dropdown-menu 
-  top: 0;
-  left: 100%;
-  margin-top: 0px;
-  margin-left: 0px;
-
-
-
-
-
 //*****************************************
 //Icon
 //**************************************** 
@@ -153,12 +138,51 @@ a.card
     background-size: cover
     position: relative
 
+//*****************************************
+//Dropdoewn item
+//**************************************** 
 
 .dropdown-item_view_accent
-    transition: 0.2s
+    transition: 0.3s
+    color: theme-color('accent-main')
+
+.dropdown-item_view_accent:active,
+.dropdown-item_view_accent.dropdown-item_active,
+.dropdown-item_view_accent:hover
     @include hover-focus()
         color: theme-color('common-white')
         background-color: theme-color('accent-main')
+
+
+//*****************************************
+//Preview
+//**************************************** 
+
+.preview
+    background-color: theme-color('primary-main')
+    @include media-breakpoint-down(md)
+        background-color: theme-color('common-white')
+
+.preview_tub
+    color: theme-color('common-white')
+    padding: 10px 30px
+    transition: 0.3s
+
+    @include media-breakpoint-down(md)
+        margin-top: 5px; 
+        color: theme-color('accent-main')
+
+.preview_tub:hover,
+.preview_tub:active,
+.preview_tub.active
+    color: theme-color('common-white')
+    background-color: theme-color('accent-main')
+    border-radius: 5px 5px 0 0
+
+    @include media-breakpoint-down(md)
+        border-radius: 5px
+    
+
 
 .container-full-height
     min-height: calc(100vh - 350px)

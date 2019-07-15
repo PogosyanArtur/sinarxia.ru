@@ -37,7 +37,7 @@ class Walker_header_navbar_lg extends Walker_Nav_Menu {
     // $classes = empty( $item->classes ) ? array() : (array) $item->classes;        
     $classes[] = ( $depth === 0 &&  $args->walker->has_children ) ? ' dropdown' : '';
     $classes[] = ( $depth === 0 ) ? ' nav-item' : '';
-    $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'active' : '';
+    $classes[] = ( $item->current || $item->current_item_anchestor ) ? 'dropdown-item_active' : '';
 
 
     $li_class_names = '';
@@ -73,9 +73,9 @@ class Walker_header_navbar_lg extends Walker_Nav_Menu {
     )) : '';
 
     // a class
-    $a_class_names = '';
+    $a_class_names = ' dropdown-item_view_accent ';
     $a_class_names .= ( $depth === 0 && $args->walker->has_children ) ? ' dropdown-toggle ' : '';
-    $a_class_names .= ( $depth === 0  ) ? ' nav-link' : 'dropdown-item';
+    $a_class_names .= ( $depth === 0  ) ? ' nav-link' : ' dropdown-item ';
 
     
     // link item output

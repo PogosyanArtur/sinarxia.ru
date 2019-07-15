@@ -1,8 +1,20 @@
 <?php
-$articles = get_field('articles');
-$bg_images = get_field('bg_images');
+$articles   = get_field('articles');
+$bg_images  = get_field('bg_images');
+$titles     = get_field('titles');
 $bg_images1 = wp_get_attachment_image_url($bg_images[0]['bg_image'],'full');
 $bg_images2 = wp_get_attachment_image_url($bg_images[1]['bg_image'],'full');
+
+$title_right_part   = $titles[0]['right_part'];
+$title_left_part    = $titles[0]['left_part'];
+
+$categories = get_categories( array(
+	'parent'       => 0,
+	'orderby'      => 'name',
+	'hide_empty'   => 1,
+) );
+
+set_query_var('categories', $categories)
 
 ;?>
 
@@ -10,7 +22,33 @@ $bg_images2 = wp_get_attachment_image_url($bg_images[1]['bg_image'],'full');
 
 <?php echo do_shortcode('[smartslider3 slider=2]') ;?>
 
-<main class="mb-4">    
+<main class="mb-4">
+
+    <!-- Start Title -->
+
+    <div class="bg-primary-main">
+        <div class="container">
+            <h2 class="text-center text-white py-3 text-uppercase text-size-6 text-size-md-8 m-0">
+                <?php esc_html_e( $title_left_part, 'sinarxia' ) ;?><span class="text-accent-main"> <?php esc_html_e( $title_right_part, 'sinarxia' ); ?></span>
+            </h2>            
+        </div>    
+    </div>
+
+   <!-- End Title -->
+
+   <!-- Start preview tubs -->
+
+   <div class="preview">
+        <div class="container">            
+            <?php get_template_part('/template-parts/page/content','preview-tubs') ;?>
+        </div> 
+    </div>
+
+    <!-- End preview tubs -->
+
+    <div class="container">
+        <?php get_template_part('/template-parts/page/content','preview-content') ;?>
+    </div>
    
 </main> 
 
