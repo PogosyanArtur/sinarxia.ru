@@ -119,9 +119,10 @@ add_action( 'wp_enqueue_scripts', 'simple_enqueue_script' );
 
 function simple_register_nav_menus() {
 	register_nav_menus( [ 
-		'header_menu' => 'Меню в шапке',
-		'footer_menu_products' => 'Меню в подвале продукция',
-		'footer_menu_service' => 'Меню в подвале услуги'
+		'header_menu' 			=> 'Меню в шапке',
+		'footer_menu_products' 	=> 'Меню в подвале продукция',
+		'footer_menu_service'	=> 'Меню в подвале услуги',
+		'footer_menu_rent' 		=> 'Меню в подвале аренда',
 		] );
 }
 

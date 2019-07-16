@@ -1,5 +1,6 @@
 <div class="tab-content">
 
+
     <?php foreach ( $categories as $category) : ?>
         <?php 
         $posts = get_posts( array(
@@ -24,12 +25,13 @@
                     </div>     
                 <?php  endforeach; wp_reset_postdata(); ?>   
 
-            </div>                            
-        </div>
-    <?php endforeach; ?>
+            </div>
+            <div class="text-center py-3">
+                <a class="btn btn-accent-main text-common-white" href="<?php echo get_category_link( $category->term_id) ;?>">Посмотреть все</a>
+            </div>                          
+        </div>   
 
-    <div class="text-center py-3">
-        <a class="btn btn-accent-main text-common-white" href="<?php echo get_post_type_archive_link( $product_list_arg['post_type'] ) ;?>">Посмотреть все</a>
-    </div>
-    
+
+
+    <?php endforeach; ?>
 </div>
