@@ -4,6 +4,9 @@
     Menu arguments
     **************************************************
 */
+
+$contacts  = get_field('contacts','options');
+
 $menu_products_args = [
     'theme_location'  => 'footer_menu_products',
     'container'       => false,
@@ -26,7 +29,22 @@ $menu_rent_args = [
     'items_wrap'      => '<ul class="navbar-nav">%3$s</ul>',
     'depth'           => 1,
     'walker'          => new Walker_footer_menu()
-    ]
+];
+
+    $telephone_name     = $contacts['telephone']['name'];
+    $telephone_link     = $contacts['telephone']['link'];
+    $telephone_icon     = $contacts['telephone']['icon'];
+    $telephone_title    = $contacts['telephone']['title'];
+
+    $mail_name  = $contacts['mail']['name'];
+    $mail_link  = $contacts['mail']['link'];
+    $mail_icon  = $contacts['mail']['icon'];
+    $mail_title = $contacts['mail']['title'];
+
+    $address_name  = $contacts['address']['name'];
+    $address_link  = $contacts['address']['link'];
+    $address_icon  = $contacts['address']['icon'];
+    $address_title = $contacts['address']['title'];
 ?>  
        
        
@@ -45,9 +63,9 @@ $menu_rent_args = [
                     <div class="col-12 col-md-6 offset-lg-6 col-lg-3 mt-3">
                         <h3 class="h5 text-common-white text-capitalize">Контакты</h3>
                         <nav class="nav flex-column">
-                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href="tel:<?php the_field("global_contacts_telephone_link","option"); ?>">Тел: <?php the_field("global_contacts_telephone_caption","option"); ?></a>
-                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href="mailto:<?php the_field("global_contacts_mail","option"); ?>">E-mail: <?php the_field("global_contacts_mail","option"); ?></a>
-                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href=" <?php echo home_url( '/contacts' ); ?> "> Адрес: <?php the_field( "global_contacts_adress", "option" ); ?></a>
+                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href="tel:<?php echo $telephone_link; ?>"><?php echo $telephone_title ;?> <?php echo $telephone_name ; ?></a>
+                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href="mailto:<?php echo $mail_link ;?>"><?php echo $mail_title ;?> <?php echo $mail_name ; ?></a>
+                            <a class="btn btn-link text-left py-1 px-0 text-common-500" href=" <?php echo $address_link; ?> "><?php echo $address_title ;?> <?php echo $address_name; ?></a>
                         </nav>
                     </div>
 
