@@ -2,10 +2,10 @@
     $queried_obj    = get_queried_object();
     $bg_images      = get_field('bg_images','options');
     $category_name  = $queried_obj->name;
-
+    
     foreach($bg_images as $bg_image){
 
-        if( trim( $bg_image['slug'] ) === $queried_obj->taxonomy ){
+        if( trim( $bg_image['slug'] ) === $queried_obj->post_name || trim( $bg_image['slug'] ) === $queried_obj->taxonomy ){
             $bg_image_url = wp_get_attachment_image_url( $bg_image['image'], 'full');
         }
     }
