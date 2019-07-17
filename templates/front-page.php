@@ -49,19 +49,20 @@ $rent_categories = get_categories( array(
 <main class="mb-4">
 
     <!-- Start first preview -->
+
     <section>
         <div class="bg-primary-main">
             <div class="container">
                 <h2 class="text-center text-white py-3 text-uppercase text-size-6 text-size-md-8 m-0">
-                    <?php esc_html_e( $title_left_part_1, 'sinarxia' ) ;?><span class="text-accent-main"> <?php esc_html_e( $title_right_part_1, 'sinarxia' ); ?></span>
+                    <?php esc_html_e( $title_left_part_2, 'sinarxia' ) ;?><span class="text-accent-main"> <?php esc_html_e( $title_right_part_2, 'sinarxia' ); ?></span>
                 </h2>            
             </div>    
         </div>
 
-    <?php set_query_var('categories', $products_categories) ;?>
+    <?php set_query_var('categories', $service_categories) ;?>
     
         <div class="preview">
-            <div class="container" id="products_preview_tabs">            
+            <div class="container" id="service_preview_tabs">            
                 <?php get_template_part('/template-parts/page/content','preview-tubs') ;?>
             </div> 
         </div>    
@@ -79,15 +80,15 @@ $rent_categories = get_categories( array(
         <div class="bg-primary-main">
             <div class="container">
                 <h2 class="text-center text-white py-3 text-uppercase text-size-6 text-size-md-8 m-0">
-                    <?php esc_html_e( $title_left_part_2, 'sinarxia' ) ;?><span class="text-accent-main"> <?php esc_html_e( $title_right_part_2, 'sinarxia' ); ?></span>
+                    <?php esc_html_e( $title_left_part_1, 'sinarxia' ) ;?><span class="text-accent-main"> <?php esc_html_e( $title_right_part_1, 'sinarxia' ); ?></span>
                 </h2>            
             </div>    
         </div>
 
-    <?php set_query_var('categories', $service_categories) ;?>
+    <?php set_query_var('categories', $products_categories) ;?>
     
         <div class="preview">
-            <div class="container" id="service_preview_tabs">            
+            <div class="container" id="products_preview_tabs">            
                 <?php get_template_part('/template-parts/page/content','preview-tubs') ;?>
             </div> 
         </div>    
