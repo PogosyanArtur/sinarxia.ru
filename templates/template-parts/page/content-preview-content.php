@@ -1,14 +1,30 @@
 <div class="tab-content">
+    
 
+    <?php 
+
+    ;?>
 
     <?php foreach ( $categories as $category) : ?>
-        <?php 
+        <?php
+        switch( $category->taxonomy ) {
+            case 'rent_category' :
+                $post_type = 'rent';
+                break;
+            case 'service_category' :
+                $post_type = 'service';
+                break;
+            default:
+                $post_type = 'post';
+        } 
         $posts = get_posts( array(
+            'post_type'       => $post_type,
             'posts_per_page'  => get_option( 'posts_per_page' ),
             'orderby'         => 'rand',
+            'suppress_filters'=> true,
             'tax_query'       => array(
                 array(
-                    'taxonomy' => 'category',
+                    'taxonomy' => $category->taxonomy,
                     'field'    => 'slug',
                     'terms'    => $category->slug,
                 ),
@@ -29,9 +45,7 @@
             <div class="text-center py-3">
                 <a class="btn btn-accent-main text-common-white" href="<?php echo get_category_link( $category->term_id) ;?>">Посмотреть все</a>
             </div>                          
-        </div>   
-
-
+        </div>
 
     <?php endforeach; ?>
 </div>

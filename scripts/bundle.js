@@ -33,7 +33,9 @@ import "../bower_components/jquery-ui/ui/widgets/menu";
 
 jQuery.noConflict();
   (function( $ ) {
-	$('#preview_tabs a:first').tab('show')
+	$('#products_preview_tabs a:first').tab('show')
+	$('#service_preview_tabs a:first').tab('show')
+	$('#rent_preview_tabs a:first').tab('show')
 	$('#singlePageTab a:first').tab('show')
 })(jQuery);
 

@@ -1,8 +1,10 @@
 <?php 
     $queried_object     = get_queried_object();
+    $taxonomy           = $queried_object->taxonomy;
 
     $list_categories_args = array(
-        'orderby'      => 'name',
+        'taxonomy'     => $taxonomy ,
+        'orderby'      => 'rand',
         'hierarchical' => 1,       
         'title_li'     => '',
         'hide_empty'   => true,

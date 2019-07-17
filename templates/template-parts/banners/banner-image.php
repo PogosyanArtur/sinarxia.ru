@@ -5,11 +5,11 @@
 
     foreach($bg_images as $bg_image){
 
-        if( $bg_image['slug'] === $queried_obj->post_name || $bg_image['slug'] === $queried_obj->taxonomy ){
+        if( trim( $bg_image['slug'] ) === $queried_obj->taxonomy ){
             $bg_image_url = wp_get_attachment_image_url( $bg_image['image'], 'full');
         }
     }
-    ;
+    
 ;?>
 
 <section class="w-100 h-250px">
