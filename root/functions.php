@@ -151,8 +151,28 @@ require get_template_directory() . '/inc/walkers/walker-sidebar-category.php';
 
 function simple_taxonomy_filter() {
 	global $typenow; // тип поста
-	if( $typenow == 'goods' ){ // для каких типов постов отображать
-		$taxes = array('goods_category'); // таксономии через запятую
+	if( $typenow == 'service' ){ // для каких типов постов отображать
+		$taxes = array('service_category'); // таксономии через запятую
+		foreach ($taxes as $tax) {
+			$current_tax = isset( $_GET[$tax] ) ? $_GET[$tax] : '';
+			$tax_obj = get_taxonomy($tax);
+			$tax_name = mb_strtolower($tax_obj->labels->name);
+			// функция mb_strtolower переводит в нижний регистр
+			// она может не работать на некоторых хостингах, если что, убирайте её отсюда
+			$terms = get_terms($tax);
+			if(count($terms) > 0) {
+				echo "<select name='$tax' id='$tax' class='postform'>";
+				echo "<option value=''>Все $tax_name</option>";
+				foreach ($terms as $term) {
+					echo '<option value='. $term->slug, $current_tax == $term->slug ? ' selected="selected"' : '','>' . $term->name .' (' . $term->count .')</option>'; 
+				}
+				echo "</select>";
+			}
+		}
+	}
+
+	if( $typenow == 'rent' ){ // для каких типов постов отображать
+		$taxes = array('rent_category'); // таксономии через запятую
 		foreach ($taxes as $tax) {
 			$current_tax = isset( $_GET[$tax] ) ? $_GET[$tax] : '';
 			$tax_obj = get_taxonomy($tax);

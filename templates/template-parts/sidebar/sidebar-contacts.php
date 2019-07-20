@@ -35,7 +35,7 @@
 
                 <div>
                     <h4 class="text-accent-main h5"> <?php  esc_html_e( $contact['title'], 'sinarxia' ) ;?>  </h4>
-                    <p class="text-common-700 m-0"> <?php esc_html_e( $contact['name'], 'sinarxia' )  ;?> </p>
+                    <div class="text-common-700 m-0"> <?php esc_html_e( $contact['name'], 'sinarxia' )  ;?> </div>
                 </div>
             </div>
         </a>
