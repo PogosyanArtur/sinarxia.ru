@@ -128,6 +128,55 @@ function simple_register_nav_menus() {
 
 add_action( 'after_setup_theme', 'simple_register_nav_menus' );
 
+/*
+	===============================================================
+	Change post menu name
+	===============================================================
+*/
+
+function change_post_menu_label() {
+    global $menu, $submenu;
+    $menu[5][0] = 'Продукция';
+    $submenu['edit.php'][5][0] = 'Продукция';
+    $submenu['edit.php'][10][0] = 'Добавить продукцию';
+    $submenu['edit.php'][15][0] = 'Категория продукции';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Продукция';
+    $labels->singular_name = 'Продукция';
+    $labels->add_new = 'Добавить продукцию';
+    $labels->add_new_item = 'Добавить продукцию';
+    $labels->edit_item = 'Редактировать продукцию';
+    $labels->new_item = 'Добавить продукцию';
+    $labels->view_item = 'Посмотреть';
+    $labels->search_items = 'Найти продукцию';
+    $labels->not_found = 'Не найдено';
+    $labels->not_found_in_trash = 'Корзина пуста';
+}
+add_action( 'init', 'change_post_object_label' );
+
+/*
+	===============================================================
+	Unregister post type tag
+	===============================================================
+*/
+
+function custom_unregister_taxonomy() { 
+	register_taxonomy('post_tag', array());	 
+};
+
+function custom_remove_menus() {
+	remove_menu_page('edit-tags.php?taxonomy=post_tag');
+	
+}
+
+add_action('init', 'custom_unregister_taxonomy');
+add_action('admin_menu', 'custom_remove_menus');
 
 
 /*
@@ -170,6 +219,7 @@ function simple_taxonomy_filter() {
 			}
 		}
 	}
+
 
 	if( $typenow == 'rent' ){ // для каких типов постов отображать
 		$taxes = array('rent_category'); // таксономии через запятую
